@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GNIOT Chatbot</title>
+</head>
+<body>
+  <h1>Welcome to GNIOT Chatbot</h1>
+
+  <script>
+    window.watsonAssistantChatOptions = {
+      integrationID: "yaha-apna-integration-id-daale",
+      region: "us-south", 
+      serviceInstanceID: "yaha-apna-service-id-daale"
+    };
+    setTimeout(function(){
+      const t = document.createElement('script');
+      t.src = "https://web-chat.global.assistant.watson.appdomain.cloud/versions/latest/WatsonAssistantChatEntry.js";
+      document.head.appendChild(t);
+    });
+  </script>
+</body>
+</html>
