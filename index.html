@@ -7,16 +7,17 @@
   <h1>Welcome to GNIOT Chatbot</h1>
 
   <script>
-    window.watsonAssistantChatOptions = {
-      integrationID: "6b0e239d-46fa-48c3-b11a-4dc96b938dcd",
-      region: "us-south", 
-      serviceInstanceID: "846b4021-97d4-4eb4-a410-3886f9207b79",
-    };
-    setTimeout(function(){
-      const t = document.createElement('script');
-      t.src = "https://web-chat.global.assistant.watson.appdomain.cloud/versions/latest/WatsonAssistantChatEntry.js";
-      document.head.appendChild(t);
-    });
-  </script>
+  window.watsonAssistantChatOptions = {
+    integrationID: "6b0e239d-46fa-48c3-b11a-4dc96b938dcd",
+    region: "us-south",
+    serviceInstanceID: "846b4021-97d4-4eb4-a410-3886f9207b79",
+    onLoad: function(instance) { instance.render(); }
+  };
+  setTimeout(function(){
+    const t = document.createElement('script');
+    t.src = "https://web-chat.global.assistant.watson.cloud.ibm.com/loadWatsonAssistantChat.js";
+    document.head.appendChild(t);
+  });
+</script>
 </body>
 </html>
