@@ -2,21 +2,54 @@
 <html>
 <head>
   <title>GNIOT Chatbot</title>
+  <script src="https://cdn.jsdelivr.net/npm/ibmcloud-appid-js/dist/appid.min.js"></script>
 </head>
 <body>
-  <h1>Welcome to GNIOT Chatbot</h1>
-  <script>
-  window.watsonAssistantChatOptions = {
-    integrationID: "6b0e239d-46fa-48c3-b11a-4dc96b938dcd",
-    region: "us-south",
-    serviceInstanceID: "846b4021-97d4-4eb4-a410-3886f9207b79",
-    onLoad: function(instance) { instance.render(); }
-  };
-  setTimeout(function(){
-    const t = document.createElement('script');
-    t.src = "https://web-chat.global.assistant.watson.cloud.ibm.com/loadWatsonAssistantChat.js";
-    document.head.appendChild(t);
-  });
+  <div style="text-align: center; padding: 10px;">
+    <h1>Welcome to GNIOT Chatbot</h1>
+  </div>
+
+  <button id="loginBtn">Login</button>
+
+  <div id="chatContainer" style="display:none;">
+    <p id="userEmail"></p>
+    <button id="logoutBtn">Logout</button>
+    <div id="chat"></div>
+    <input id="msg" placeholder="Message">
+    <button onclick="send()">Send</button>
+  </div>
+
+<script>
+const appId = new IBMCloudAppID();
+
+const config = {
+  clientId: "12a37b65-000f-47af-817f-4a1ad01dadf",
+  discoveryEndpoint: "https://au-syd.appid.cloud.ibm.com/oauth/v4/6c7af665-6c37-448a-8b2d-2ff58ebb21bc/.well-known/openid-configuration",
+  redirectUri: "https://gniot-sanskar.github.io/gniot-chatbot-demo"
+};
+appId.init(config);
+
+document.getElementById('loginBtn').onclick = () => appId.signin();
+document.getElementById('logoutBtn').onclick = () => { appId.signout(); location.reload(); };
+
+appId.getUserInfo().then(user => {
+  if(user) {
+    document.getElementById('loginBtn').style.display = 'none';
+    document.getElementById('logoutBtn').style.display = 'inline-block';
+    document.getElementById('userEmail').innerText = 'Hi ' + user.email;
+    document.getElementById('chatContainer').style.display = 'block';
+  }
+});
+
+async function send(){
+  let m = document.getElementById('msg').value;
+  if(m.trim() === "") return;
+  document.getElementById('chat').innerHTML += `<p><b>YOU:</b> ${m}</p>`;
+  document.getElementById('msg').value = '';
+  let r = await fetch('/chat',{method: 'POST',headers:{'Content-Type': 'application/json'},body:JSON.stringify({message:m})});
+  let data = await r.json();
+  document.getElementById('chat').innerHTML += `<p><b>BOT:</b> ${data.reply}</p>`;
+}
 </script>
 </body>
 </html>
