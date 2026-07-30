@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>GNIOT Helpdesk | IBM Watson</title>
+    <title>AI Powered Student Helpdesk | IBM Watson</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; transition: 0.3s; }
         body { background: linear-gradient(135deg, #0f62fe 0%, #001d6c 100%); color: #333; }
         
         /* Header */
-        header { background: white; padding: 20px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+        header { background: white; padding: 20px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.2); position: relative; }
         header h1 { color: #0f62fe; font-size: 28px; }
         header p { color: #525252; margin-top: 5px; }
         .ibm-badge { background: #0f62fe; color: white; padding: 6px 18px; border-radius: 20px; font-weight: bold; display: inline-block; margin-top: 10px; }
+        
+        /* Dark Mode Button */
+        .dark-btn { position: absolute; right: 20px; top: 20px; background: #0f62fe; color: white; border: none; padding: 8px 15px; border-radius: 20px; cursor: pointer; font-weight: bold; }
+        .dark-btn:hover { background: #0353e9; }
         
         /* Main Box */
         .container { max-width: 900px; margin: 40px auto; background: white; border-radius: 15px; padding: 40px; box-shadow: 0 15px 40px rgba(0,0,0,0.3); text-align: center; }
@@ -21,19 +25,30 @@
         
         /* Footer */
         footer { text-align: center; padding: 20px; color: white; font-size: 14px; }
+
+        /* DARK MODE CSS */
+        body.dark { background: linear-gradient(135deg, #161616 0%, #000 100%); }
+        body.dark header { background: #262626; }
+        body.dark header h1 { color: #78a9ff; }
+        body.dark header p, body.dark .container p { color: #c6c6c6; }
+        body.dark .container { background: #262626; }
+        body.dark .container h2 { color: white; }
+        body.dark .feature { background: #393939; color: white; }
+        body.dark .ibm-badge, body.dark .dark-btn { background: #78a9ff; color: #161616; }
     </style>
 </head>
 <body>
 
     <header>
-        <h1> GNIOT Helpdesk</h1>
+        <button class="dark-btn" onclick="document.body.classList.toggle('dark')">🌙 Dark Mode</button>
+        <h1>AI Powered Student Helpdesk</h1>
         <p>Built with IBM Watson Assistant</p>
         <span class="ibm-badge">IBM SkillsBuild Project</span>
     </header>
 
     <div class="container">
         <h2>🤖 Ask me anything about College</h2>
-        <p>Fees, Admission, Placement se related instant reply pao</p>
+        <p>Fees, Admission, Timetable, Placement se related instant reply pao</p>
         
         <div class="features">
             <div class="feature"><b>24x7 Support</b><br>Student queries ka turant jawab</div>
