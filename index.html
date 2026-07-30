@@ -1,22 +1,63 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>GNIOT Chatbot</title>
+    <title>GNIOT Helpdesk | IBM Watson</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background: linear-gradient(135deg, #0f62fe 0%, #001d6c 100%); color: #333; }
+        
+        /* Header */
+        header { background: white; padding: 20px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+        header h1 { color: #0f62fe; font-size: 28px; }
+        header p { color: #525252; margin-top: 5px; }
+        .ibm-badge { background: #0f62fe; color: white; padding: 6px 18px; border-radius: 20px; font-weight: bold; display: inline-block; margin-top: 10px; }
+        
+        /* Main Box */
+        .container { max-width: 900px; margin: 40px auto; background: white; border-radius: 15px; padding: 40px; box-shadow: 0 15px 40px rgba(0,0,0,0.3); text-align: center; }
+        .container h2 { color: #161616; margin-bottom: 15px; }
+        .container p { color: #525252; line-height: 1.6; }
+        .features { display: flex; justify-content: space-around; margin-top: 25px; flex-wrap: wrap; }
+        .feature { width: 250px; margin: 10px; padding: 15px; background: #f4f4f4; border-radius: 10px; }
+        
+        /* Footer */
+        footer { text-align: center; padding: 20px; color: white; font-size: 14px; }
+    </style>
 </head>
 <body>
-  <h1>Welcome to GNIOT Chatbot</h1>
-  <script>
-  window.watsonAssistantChatOptions = {
-    integrationID: "6b0e239d-46fa-48c3-b11a-4dc96b938dcd",
-    region: "us-south",
-    serviceInstanceID: "846b4021-97d4-4eb4-a410-3886f9207b79",
-    onLoad: function(instance) { instance.render(); }
-  };
-  setTimeout(function(){
-    const t = document.createElement('script');
-    t.src = "https://web-chat.global.assistant.watson.cloud.ibm.com/loadWatsonAssistantChat.js";
-    document.head.appendChild(t);
-  });
-</script>
+
+    <header>
+        <h1>AI Powered Student Helpdesk</h1>
+        <p>Built with IBM Watson Assistant</p>
+        <span class="ibm-badge">IBM SkillsBuild Project</span>
+    </header>
+
+    <div class="container">
+        <h2>🤖 Ask me anything about College</h2>
+        <p>Fees, Admission, Timetable, Placement se related instant reply pao</p>
+        
+        <div class="features">
+            <div class="feature"><b>24x7 Support</b><br>Student queries ka turant jawab</div>
+            <div class="feature"><b>Powered by IBM</b><br>Watson Assistant AI Technology</div>
+            <div class="feature"><b>Easy to Use</b><br>No login, direct chat</div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Project by: SANSKAR SHARMA | IBM SkillsBuild Internship | 2026</p>
+    </footer>
+
+    <script>
+      window.watsonAssistantChatOptions = {
+        integrationID: "6b0e239d-46fa-48c3-b11a-4dc96b938dcd",
+        region: "us-south",
+        serviceInstanceID: "846b4021-97d4-4eb4-a410-3886f9207b79",
+        onLoad: function(instance) { instance.render(); }
+      };
+      setTimeout(function(){
+        const t = document.createElement('script');
+        t.src = "https://web-chat.global.assistant.watson.cloud.ibm.com/loadWatsonAssistantChat.js";
+        document.head.appendChild(t);
+      });
+    </script>
 </body>
 </html>
