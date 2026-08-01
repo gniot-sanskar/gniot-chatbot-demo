@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GNIOT Helpdesk | Chat</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background: linear-gradient(135deg, #0f62fe 0%, #001d6c 100%); min-height: 100vh; }
+        header { background: white; padding: 20px; text-align: center; box-shadow: 0px 4px 15px rgba(0,0,0,0.2); }
+        header h1 { color: #0f62fe; font-size: 24px; }
+        .back-btn { position: absolute; top: 20px; left: 20px; color: #0f62fe; background: white; padding: 8px 16px; border-radius: 20px; text-decoration: none; font-weight: bold; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        .back-btn:hover { background: #f4f4f4; }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-btn">← Back to Home</a>
+    <header>
+        <h1>GNIOT Helpdesk Chat</h1>
+    </header>
+
+    <!-- IBM Watson Assistant Chatbot Script -->
+    <script>
+        window.watsonAssistantChatOptions = {
+            integrationID: "6be0239d-46fa-48c3-b11a-4dc96b938dcd",
+            region: "us-south",
+            serviceInstanceID: "846b4021-97d4-4eb4-a410-3088f9207679",
+            onLoad: function(instance) { instance.render(); }
+        };
+        setTimeout(function(){
+            const t = document.createElement('script');
+            t.src = "https://web-chat.global.assistant.watson.cloud.ibm.com/loadWatsonAssistantChat.js";
+            document.head.appendChild(t);
+        });
+    </script>
+</body>
+</html>
